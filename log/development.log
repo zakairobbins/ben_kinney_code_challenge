@@ -1,0 +1,668 @@
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20170403185856)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170403185856"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for ::1 at 2017-04-03 12:02:18 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 20ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-03 12:02:59 -0700
+DEPRECATION WARNING: Defining a route where `to` is a controller without an action is deprecated. Please change `to: 'welcome/index'` to `controller: 'welcome/index'`. (called from block in <top (required)> at /Users/Zakai/Desktop/github_repos/ben_kinney_code_challenge/messaging_board/config/routes.rb:3)
+
+ArgumentError (Missing :action key on routes definition, please check your routes.):
+  config/routes.rb:3:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (75.5ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (78.7ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (167.0ms)
+DEPRECATION WARNING: Defining a route where `to` is a controller without an action is deprecated. Please change `to: 'welcome/index'` to `controller: 'welcome/index'`. (called from block in <top (required)> at /Users/Zakai/Desktop/github_repos/ben_kinney_code_challenge/messaging_board/config/routes.rb:3)
+DEPRECATION WARNING: Defining a route where `to` is a controller without an action is deprecated. Please change `to: 'welcome/index'` to `controller: 'welcome/index'`. (called from block in <top (required)> at /Users/Zakai/Desktop/github_repos/ben_kinney_code_challenge/messaging_board/config/routes.rb:3)
+
+
+Started GET "/" for ::1 at 2017-04-03 12:04:03 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 783ms (Views: 768.5ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddConfirmableToDevise (20170403190648)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "confirmation_token" varchar[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" ADD "confirmed_at" datetime
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "confirmation_sent_at" datetime[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[35m (0.5ms)[0m  UPDATE users SET confirmed_at = NOW()
+  [1m[36m (1.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddConfirmableToDevise (20170403190648)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "users" ADD "confirmation_token" varchar[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "confirmed_at" datetime
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "confirmation_sent_at" datetime[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[35m (0.1ms)[0m  UPDATE users SET confirmed_at = date('now')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170403190648"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/users/sign_up" for ::1 at 2017-04-03 12:21:41 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 350ms (Views: 327.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for ::1 at 2017-04-03 12:21:55 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VJvZ51qKLelwXTwQBEaFTqIPUt1965EU4rHQlTjC1T3/2jJntVJx9jYRpQazrbAjZcG8dIQOvI1XKMjQ+S2GsA==", "user"=>{"email"=>"zakai@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'zakai@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?)  [["email", "zakai@email.com"], ["encrypted_password", "$2a$11$6MyIras2kt3zbuvipAuJpuaGoY1ruG31.mpWyppgQfnV/0BboBf/S"], ["created_at", "2017-04-03 19:21:55.180600"], ["updated_at", "2017-04-03 19:21:55.180600"], ["confirmation_token", "jnLhDYNEtvs_GPrpT9-r"], ["confirmation_sent_at", "2017-04-03 19:21:55.180970"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 2.8ms)
+
+NameError (undefined local variable or method `unconfirmed_email' for #<User:0x007fcab4b3e558>):
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activemodel-4.2.8/lib/active_model/attribute_methods.rb:433:in `method_missing'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/lib/devise/models/confirmable.rb:107:in `pending_reconfirmation?'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/lib/devise/models/confirmable.rb:116:in `send_confirmation_instructions'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/lib/devise/models/confirmable.rb:179:in `send_on_create_confirmation_instructions'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:253:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:253:in `block in conditional'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `each'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:778:in `_run_commit_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:314:in `committed!'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:89:in `commit_records'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:153:in `commit'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:175:in `commit_transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:194:in `within_new_transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:220:in `transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:348:in `with_transaction_returning_status'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:286:in `block in save'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:301:in `rollback_active_record_state!'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:285:in `save'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/controllers/devise/registrations_controller.rb:17:in `create'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/base.rb:198:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:505:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:505:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/notifications.rb:164:in `block in instrument'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/notifications.rb:164:in `instrument'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/base.rb:137:in `process'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionview-4.2.8/lib/action_view/rendering.rb:30:in `process'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal.rb:196:in `dispatch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal.rb:237:in `block in action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:74:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/journey/router.rb:30:in `each'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/journey/router.rb:30:in `serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:817:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/etag.rb:24:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/conditionalget.rb:38:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/head.rb:13:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/flash.rb:260:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/session/abstract/id.rb:225:in `context'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/session/abstract/id.rb:220:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/query_cache.rb:36:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/migration.rb:377:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:28:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:18:in `catch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:18:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/rack/logger.rb:38:in `call_app'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/rack/logger.rb:20:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/tagged_logging.rb:26:in `tagged'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/tagged_logging.rb:68:in `tagged'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/rack/logger.rb:20:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/methodoverride.rb:22:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/runtime.rb:18:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/lock.rb:17:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/static.rb:120:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/sendfile.rb:113:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/engine.rb:518:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/application.rb:165:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/lock.rb:17:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/content_length.rb:15:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/handler/webrick.rb:88:in `service'
+  /Users/zakai/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/zakai/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/zakai/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (83.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (78.8ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (153.3ms)
+
+
+Started POST "/users" for ::1 at 2017-04-03 12:22:47 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/7gWQa/0mqzgRWh3wRq8k3ptkdPjdQs2DtRjDHJ7yJdU+f3BQCzGs6YJ8WF28Yn+vaN/ehqQJq+7TXtJs5SbGg==", "user"=>{"email"=>"zakai@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'zakai@email.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 545ms (Views: 298.4ms | ActiveRecord: 0.8ms)
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 1]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+
+
+Started POST "/users" for ::1 at 2017-04-03 12:23:45 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/7gWQa/0mqzgRWh3wRq8k3ptkdPjdQs2DtRjDHJ7yJdU+f3BQCzGs6YJ8WF28Yn+vaN/ehqQJq+7TXtJs5SbGg==", "user"=>{"email"=>"zakai@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'zakai@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?)  [["email", "zakai@email.com"], ["encrypted_password", "$2a$11$l5FFxfjiWDu.38Hc4eK7zeU87qbf6fzHRIMnEBIhHb78DQ6nleBCa"], ["created_at", "2017-04-03 19:23:46.131760"], ["updated_at", "2017-04-03 19:23:46.131760"], ["confirmation_token", "Ns2xtvSAWJjSSaQj32vZ"], ["confirmation_sent_at", "2017-04-03 19:23:46.132167"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 210ms (ActiveRecord: 3.0ms)
+
+NameError (undefined local variable or method `unconfirmed_email' for #<User:0x007fe71b57fbc0>):
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activemodel-4.2.8/lib/active_model/attribute_methods.rb:433:in `method_missing'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/lib/devise/models/confirmable.rb:107:in `pending_reconfirmation?'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/lib/devise/models/confirmable.rb:116:in `send_confirmation_instructions'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/lib/devise/models/confirmable.rb:179:in `send_on_create_confirmation_instructions'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:253:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:253:in `block in conditional'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `each'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:778:in `_run_commit_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:314:in `committed!'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:89:in `commit_records'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:153:in `commit'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:175:in `commit_transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:194:in `within_new_transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:220:in `transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:348:in `with_transaction_returning_status'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:286:in `block in save'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:301:in `rollback_active_record_state!'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:285:in `save'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/controllers/devise/registrations_controller.rb:17:in `create'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/base.rb:198:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:505:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:505:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/notifications.rb:164:in `block in instrument'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/notifications.rb:164:in `instrument'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/base.rb:137:in `process'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionview-4.2.8/lib/action_view/rendering.rb:30:in `process'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal.rb:196:in `dispatch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal.rb:237:in `block in action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:74:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/journey/router.rb:30:in `each'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/journey/router.rb:30:in `serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:817:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/etag.rb:24:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/conditionalget.rb:38:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/head.rb:13:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/flash.rb:260:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/session/abstract/id.rb:225:in `context'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/session/abstract/id.rb:220:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/query_cache.rb:36:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/migration.rb:377:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:28:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:18:in `catch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:18:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/rack/logger.rb:38:in `call_app'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/rack/logger.rb:20:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/tagged_logging.rb:26:in `tagged'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/tagged_logging.rb:68:in `tagged'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/rack/logger.rb:20:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/methodoverride.rb:22:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/runtime.rb:18:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/lock.rb:17:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/static.rb:120:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/sendfile.rb:113:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/engine.rb:518:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/application.rb:165:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/lock.rb:17:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/content_length.rb:15:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/handler/webrick.rb:88:in `service'
+  /Users/zakai/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/zakai/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/zakai/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (86.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (75.2ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (163.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 2]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/users/sign_up" for ::1 at 2017-04-03 12:25:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 333ms (Views: 307.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for ::1 at 2017-04-03 12:25:35 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a3EDKZLM0GC2b5ZXbsSyiDgGZI94PsGujGR9LP6fsUrAMOipfRSMf/AjD0HZL4fl/8iKJoHb7Dc5/WVpP3Dixw==", "user"=>{"email"=>"zakai@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'zakai@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?)  [["email", "zakai@email.com"], ["encrypted_password", "$2a$11$Qd5Ur1ZCd/olYIxLB4/7wu0gr2LP6Gi0P9GitjYNXODRluu4PlPya"], ["created_at", "2017-04-03 19:25:35.793913"], ["updated_at", "2017-04-03 19:25:35.793913"], ["confirmation_token", "d5e-1AyTqJzdDbd5yu4J"], ["confirmation_sent_at", "2017-04-03 19:25:35.794302"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 2.4ms)
+
+NameError (undefined local variable or method `unconfirmed_email' for #<User:0x007f8795249428>):
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activemodel-4.2.8/lib/active_model/attribute_methods.rb:433:in `method_missing'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/lib/devise/models/confirmable.rb:107:in `pending_reconfirmation?'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/lib/devise/models/confirmable.rb:116:in `send_confirmation_instructions'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/lib/devise/models/confirmable.rb:179:in `send_on_create_confirmation_instructions'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:432:in `block in make_lambda'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:253:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:253:in `block in conditional'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `each'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:506:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:778:in `_run_commit_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:314:in `committed!'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:89:in `commit_records'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:153:in `commit'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:175:in `commit_transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/transaction.rb:194:in `within_new_transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/database_statements.rb:213:in `transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:220:in `transaction'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:348:in `with_transaction_returning_status'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:286:in `block in save'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:301:in `rollback_active_record_state!'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/transactions.rb:285:in `save'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-4.2.0/app/controllers/devise/registrations_controller.rb:17:in `create'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/base.rb:198:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:117:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:505:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:505:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/notifications.rb:164:in `block in instrument'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/notifications.rb:164:in `instrument'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/abstract_controller/base.rb:137:in `process'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionview-4.2.8/lib/action_view/rendering.rb:30:in `process'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal.rb:196:in `dispatch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_controller/metal.rb:237:in `block in action'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:74:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/journey/router.rb:30:in `each'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/journey/router.rb:30:in `serve'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/routing/route_set.rb:817:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/etag.rb:24:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/conditionalget.rb:38:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/head.rb:13:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/flash.rb:260:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/session/abstract/id.rb:225:in `context'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/session/abstract/id.rb:220:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/query_cache.rb:36:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activerecord-4.2.8/lib/active_record/migration.rb:377:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:28:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:18:in `catch'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:18:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/rack/logger.rb:38:in `call_app'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/rack/logger.rb:20:in `block in call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/tagged_logging.rb:26:in `tagged'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/tagged_logging.rb:68:in `tagged'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/rack/logger.rb:20:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/methodoverride.rb:22:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/runtime.rb:18:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/activesupport-4.2.8/lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/lock.rb:17:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/static.rb:120:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/sendfile.rb:113:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/engine.rb:518:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.8/lib/rails/application.rb:165:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/lock.rb:17:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/content_length.rb:15:in `call'
+  /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/rack-1.6.5/lib/rack/handler/webrick.rb:88:in `service'
+  /Users/zakai/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/zakai/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/zakai/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (102.4ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (74.9ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/Zakai/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (163.3ms)
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[35m (2.1ms)[0m  commit transaction
+
+
+Started POST "/users" for ::1 at 2017-04-03 12:28:04 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a3EDKZLM0GC2b5ZXbsSyiDgGZI94PsGujGR9LP6fsUrAMOipfRSMf/AjD0HZL4fl/8iKJoHb7Dc5/WVpP3Dixw==", "user"=>{"email"=>"zakai@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'zakai@email.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?)  [["email", "zakai@email.com"], ["encrypted_password", "$2a$11$.Z3lGWjQyw1RYdP6ZQXiteRUpfoiHJANd9OzRsGPlkD0aTVBUWFH."], ["created_at", "2017-04-03 19:28:05.115274"], ["updated_at", "2017-04-03 19:28:05.115274"], ["confirmation_token", "aGh9uzUGzTsjxB4441ta"], ["confirmation_sent_at", "2017-04-03 19:28:05.115601"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.4ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 284.1ms
+
+Sent mail to zakai@email.com (160.7ms)
+Date: Mon, 03 Apr 2017 12:28:05 -0700
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: zakai@email.com
+Message-ID: <58e2a245666d4_7e933ff0b918fdf0326a8@ZakaiBook.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome zakai@email.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=aGh9uzUGzTsjxB4441ta">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 707ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/" for ::1 at 2017-04-03 12:28:05 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 209ms (Views: 207.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=aGh9uzUGzTsjxB4441ta" for ::1 at 2017-04-03 12:28:16 -0700
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"aGh9uzUGzTsjxB4441ta"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "aGh9uzUGzTsjxB4441ta"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["confirmed_at", "2017-04-03 19:28:16.970528"], ["updated_at", "2017-04-03 19:28:16.971044"], ["id", 4]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 13ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-04-03 12:28:16 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 102ms (Views: 100.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-04-03 12:28:28 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dQAbWpCvJEV9QcDT8Ta/rG3oRV5abhkdbVOJd8Pm4gXeQfDaf3d4WjsNWcVG3YrBqiar96OLNITYypEyAgmxiA==", "user"=>{"email"=>"zakai@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "zakai@email.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2017-04-03 19:28:28.984476"], ["current_sign_in_at", "2017-04-03 19:28:28.984476"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2017-04-03 19:28:28.985517"], ["id", 4]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 179ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-03 12:28:29 -0700
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.2ms)
