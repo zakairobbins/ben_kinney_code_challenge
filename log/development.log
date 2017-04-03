@@ -666,3 +666,4 @@ Processing by WelcomeController#index as HTML
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
   Rendered welcome/index.html.erb within layouts/application (1.6ms)
 Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
