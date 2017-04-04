@@ -2,7 +2,15 @@
 <p> by: <%= @author.email %><br>
 <p><%= @post.text %></p>
 
+<h3>Comments</h3>
+
 <% @comments.each do |comment| %>
-	<p><%= comment.text %></p>
-	<p><%= comment.print_author_name %></p>
+	<div class="comment">
+		<p><%= comment.text %></p>
+		<p class="comment-author"><%= comment.print_author_name %></p>
+	</div>
 <% end %>
+<div class="add-comment">
+	<strong>Add your comment</strong>
+	<%= render partial: 'comments/new', locals: {user: @user, post: @post, comment: @comment} %>
+</div>
