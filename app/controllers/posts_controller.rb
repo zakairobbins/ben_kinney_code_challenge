@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @author = User.find(@post.user_id)
+    @comments = @post.comments
   end
 
   def edit
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :text, :user_id)
   end
