@@ -1,4 +1,6 @@
 <% @posts.each do |post| %>
-	<h3><%= post.title %></h3>
-	<p><%= post.text %></p>
+	<h3><%= link_to "#{post.title}", post %></h3>
+	<p><%= post.print_author_name %></p>
 <% end %>
+
+<%= link_to 'new post', new_post_path %>

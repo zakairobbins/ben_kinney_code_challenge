@@ -1,6 +1,9 @@
+<%= link_to 'back to posts', posts_path %>
 <h1><%= @post.title %></h1><br>
-<p> by: <%= @author.email %><br>
+<div class="post-body">
+<strong> by: <%= @author.first_name + ' ' + @author.last_name %></strong><br>
 <p><%= @post.text %></p>
+</div>
 
 <h3>Comments</h3>
 
