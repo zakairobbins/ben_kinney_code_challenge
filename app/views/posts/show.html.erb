@@ -1,10 +1,9 @@
 <%= link_to 'back to posts', posts_path %>
 <h1><%= @post.title %></h1><br>
 <div class="post-body">
-<strong> by: <%= @author.first_name + ' ' + @author.last_name %></strong><br>
-<p><%= @post.text %></p>
+	<strong> by: <%= @author.first_name + ' ' + @author.last_name %></strong><br>
+	<p><%= @post.text %></p>
 </div>
-
 <h3>Comments</h3>
 
 <% @comments.each do |comment| %>
@@ -13,6 +12,7 @@
 		<p class="comment-author"><%= comment.print_author_name %></p>
 	</div>
 <% end %>
+
 <div class="add-comment">
 	<strong>Add your comment</strong>
 	<%= render partial: 'comments/new', locals: {user: @user, post: @post, comment: @comment} %>
